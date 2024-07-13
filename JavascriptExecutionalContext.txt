@@ -1,0 +1,43 @@
+/++++++++++++++++++++JAVASCRIPT EXECUTION CONTEXT++++++++++++++++++++++++++++++++++++++++++++++++++++/
+1 Golbal EXECUTION CONTEXT  --> hold by this keyword(maybe different for browser,node environment)
+2 Fucntion EXECUTION CONTEXT
+3 Eval EXECUTION CONTEXT
+
+
+let val1=10;
+let val2=5;
+function add(a,b){
+ let total = a+b
+ return total
+}
+
+let res=add(val1,val2)
+
+////First Phase
+Golbal Phase  :- whole context is allocated in this keyword
+
+//second Phase 
+Memrory Creation 
+val1=undefined
+val2=undefined
+add=defination of function
+res=undefined
+
+//third Phase
+EXECUTION Phase
+val1=10;
+val2=5;
+add() ----------------------------------------->   new EXECUTIONAL CONTEXT is created for each function call
+                                                   Memrory Creation:-
+                                                   a=undefined
+                                                   b=undefined
+                                                   total =undefined
+                                                   
+                                                   EXECUTION context
+                                                   a=10;
+                                                   b=5;
+                                                   total =15; ---> this total is returned to Memrory context
+res=15
+
+After this EXECUTIONAL CONTEXT is deleted
+
