@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: brown; color: white;">
+
+</body>
+<script>
+    function createDiv(string,color){
+        const div=document.createElement('div')
+    console.log(div);
+    div.className="myClass"
+    div.id='myID'
+    div.setAttribute("title","GeneratedTitle")
+    div.style.backgroundColor="WHITE"
+    div.style.padding="12px"
+    div.style.color=color
+    //div.innerText="HELLO THIS IS AYUSH KUMAR"    ==> this overwrites 
+    const addedText=document.createTextNode(string)
+    div.append(addedText)
+    document.body.appendChild(div)
+    }
+    createDiv("AYUSH KUMAR","GREEN")
+    createDiv("CSE 6A","ORANGE")
+    createDiv("KIET GROUP OF INSTITUTION","YELLOW")
+    createDiv("BATCH 2021-2025","CYAN")
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:blanchedalmond">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addListItem(LangName){  //it traverse whole DOM TREE
+        const li=document.createElement('li')  //li tag ko define kardiya
+        li.innerText=`${LangName}`
+        document.querySelector('.language').appendChild(li)   //ul ko select karke usmai li add kardiya
+    }
+    addListItem("JAVA")
+    addListItem("PYTHON")
+    addListItem("GOLANG")
+    addListItem("RUBY")
+    function addOptimumItem(LangName){  //optimised
+        const li=document.createElement('li')   //li ko create karo
+        li.appendChild(document.createTextNode(LangName))  //li mai text add karo
+        document.querySelector('.language').appendChild(li)  //ul ke  andar li ko add karo
+    }
+    addOptimumItem("C++")
+
+    //replacing of element
+    const thirditem=document.querySelector("li:nth-child(3)")
+    thirditem.innerHTML="C#"
+
+    //or more optimised
+    const lastItem=document.querySelector("li:nth-child(6)")
+    const updatedLi=document.createElement('li')
+    updatedLi.innerHTML="PYTHON"
+    lastItem.replaceWith(updatedLi)
+    
+
+    //edit
+
+    const del=document.querySelector("li:last-child")
+    del.remove()
+
+</script>
+</html>

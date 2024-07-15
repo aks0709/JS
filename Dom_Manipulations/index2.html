@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: brown; color: white;">
+    <div class="parent">
+        <div class="day">MONDAY</div>
+        <div class="day">TUE</div>
+        <div class="day">WED</div>
+        <div class="day">THU</div>
+    </div>
+</body>
+<script>
+    const temp=document.querySelector('.parent')
+//     console.log(temp);
+//     console.log(temp.children);
+//     console.log(temp.children[2].innerHTML);
+//     // const arr=Array.from(temp)
+//     // arr.forEach((item)=>{
+//     //     console.log(item);
+//     // })
+// for (let i = 0; i < temp.children.length; i++) {
+//     console.log(temp.children[i].innerHTML);
+// }
+// temp.children[1].style.color='orange'
+
+// console.log("FIRST AND LAST ELEMENT SELECT")
+// console.log(temp.firstElementChild);
+// const lastChild=temp.lastElementChild
+// console.log(lastChild);
+// lastChild.style.color='Cyan'
+// console.log("DIRECTLY SELECT THE CHILD");
+// const dayOne=document.querySelector('.day')
+// console.log(dayOne);
+// dayOne.style.color="BLUE"
+// console.log("SELECT THE PARENT FROM CHILD");
+// console.log(dayOne.parentElement);
+// console.log("SIBLING");
+// console.log(dayOne.nextElementSibling.nextElementSibling.style.color='YELLOW');
+console.log("NODES:- ",temp.childNodes);   /*WholE TREE STRUCTURE*/
+</script> 
+</html>
