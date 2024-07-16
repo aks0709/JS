@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AYUSH KUMAR</h1>
+    <button id='start'>start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate=function(str){
+      console.log(str,new Date().toLocaleString());
+    }
+     
+    let intervalId;
+    document.querySelector('#start').addEventListener('click',function(){
+        intervalId=setInterval(sayDate,1000,"HELLO")//this hello will be passed as argument in function
+    })//it will start printing current time when we hit start
+    document.querySelector('#stop').addEventListener('click',function(e){
+        clearInterval(intervalId)
+    })//it will stop printing in console when we hit stop button
+    
+</script>
+</html>
