@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .profile {
+            border: 1px solid white;
+            padding: 20px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .profile .details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>
+        0 UNSENT Client has been created. open() not called yet.<br>
+        1 OPENED open() has been called.<br>
+        2 HEADERS_RECEIVED send() has been called, and headers and status are available.<br>
+        3 LOADING Downloading; responseText holds partial data.<br>
+        4 DONE The operation is complete.<br>
+    </p>
+    <div id="profile" class="profile">
+        <!-- Profile information will be inserted here -->
+    </div>
+    <button class="start" onclick="fetchData()">Fetch Picture and Followers</button>
+
+    <script>
+        function fetchData(){
+            
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl);  // GET is the type of request
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);  // Show current stage
+            if (xhr.readyState === 4) { // When the stage is 4, perform this operation
+                const data = JSON.parse(this.responseText); // this holds context, response text is of type STRING
+                console.log(typeof data); // After type casting, it turns into OBJECT DATA TYPE
+                console.log(data.followers);  // followers is a field in the above API
+                console.log(data.avatar_url);
+
+                // Create profile elements
+                const profileDiv = document.getElementById('profile');
+                const img = document.createElement('img');  //img tag create kiya
+                img.src = data.avatar_url;   
+                img.alt = 'Profile Picture';
+                img.width = 100;
+                img.height = 100;
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'details';
+                const followersCount = document.createElement('p');
+                followersCount.textContent = `Followers: ${data.followers}`;
+
+                // Append elements to the profile div
+                detailsDiv.appendChild(followersCount);
+                profileDiv.appendChild(img);
+                profileDiv.appendChild(detailsDiv);
+            }
+        };
+        xhr.send();
+
+        }
+    </script>
+</body>
+</html>
