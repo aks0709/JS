@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AYUSH KUMAR</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+//    setTimeout(function(){
+//     console.log("HI AYUSH");
+//    },2000)//we provide that output will appear after 2sec
+
+   //we can also pass it as function
+   const sayAyush=function(){
+    console.log("HI AYUSH");
+   }
+   setTimeout(sayAyush,2000)
+
+   const changeText=function(){
+    document.querySelector('h1').innerHTML="2100290100041 AKS"
+   }
+  const textChangeTimeout= setTimeout(changeText,5000)  //it means after 5 sec the content of h1 will change
+
+//suppose we want to stop it from happening,we use clearTimeout()
+// but clearTimeout want reference of the setTimeout that it will stop
+document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(textChangeTimeout)
+    console.log("WE STOPPED THE TEXT FRoM CHANGING")
+},false)
+</script>
+</html>
