@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("OWL CLICKED")
+    // }
+    
+    //attachEvent()
+    //JQuery()
+    //type of events,timestamps,defaultPrevented
+//target,srcElement,currentTarget
+//clientX,clientY,screenX,screenY 
+//altkey,ctrlkey,shiftkey,keyCode
+
+
+//event capturing vs event bubling
+//iss example mai do events lag rahe ek element pe images pe click kiya toh alag log () and particular image pe click kiya toh uska alag event
+
+//event bubbling
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //      console.log("LIST ELEMENT IS CLICKED");
+    // },false)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //      console.log("OWL IS CLICKED");
+    //     },false)
+
+//set eventpropogation as false,by default it is false
+//here in event bubling ,the script track from inside to outside
+//so owl is list element inside the the outer list
+
+// document.getElementById('images').addEventListener('click',function(e){
+//          console.log("LIST ELEMENT IS CLICKED");
+//     },true)
+//     document.getElementById('river').addEventListener('click',function(e){
+//          console.log("RIVER IS CLICKED");
+//         },true)
+
+//here in event capturing the script track events from outside to inside
+
+
+//we can also stop the event from propogation
+// document.getElementById('japan').addEventListener('click',function(e){
+//     console.log("JAPAN CLICKED");
+//     e.stopPropagation()
+//     //this stop the event from bubling sirf current waale element pe focus karega ushi ka output dega
+// },false)
+
+
+// stop event from redirecting
+
+// document.getElementById('google').addEventListener('click',function(e){
+//     e.preventDefault()  //stop event like redirecting ,it holds the form from being submit
+//     console.log("GOOGLE CLICKED ,LEKIN HUM REDIRECT NAHI HUE LINK PE");
+// },false)
+
+//we are doing a fun activity the image we click will disappear
+ document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.parentNode);  //him jis images ko select karenge uska parent i.e, <li></li>  isko select karega
+    if(e.target.tagName==='IMG'){
+    console.log(e.target.id);
+    let removeImage=e.target.parentNode
+    removeImage.remove() 
+    }
+ },false)
+
+
+</script>
+</html>
