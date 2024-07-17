@@ -100,3 +100,19 @@ fetch('https://jsonplaceholder.typicode.com/users')
     console.log(data);
 })
 .catch((error)=> console.log(error))
+
+
+//fetch() method starts process of fetching a resource from the 
+/*  network ,return a promise which is fulfilled once the response is available 
+The Promise resolves to the Response object representing the response to your request
+
+A fetch() promise only rejects when a network error is encountered 
+We handle the promise by the response and reject
+
+
+A fetch() promise does not reject 404 (HTTP ERRORS )
+
+fetch works on high priority queue(micro task queue) so the task inside the this queue is done first then task of normal queue
+//if you run this code the fech data comes first then the data we of regular promise
+ 
+*/
